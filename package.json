@@ -1,0 +1,11 @@
+{
+  "name": "bikelord",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "build": "cd server && npm run build"
+  },
+  "repository": "git@github.com:LordMendes/bikelord.git",
+  "author": "Lucas C Mendes <lucasmendes.lx@gmail.com>",
+  "license": "MIT"
+}
