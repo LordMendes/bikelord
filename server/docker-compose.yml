@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  pg_bikeroyalty:
+    image: postgres:14.2-alpine
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USERNAME=postgres
+      - POSTGRES_DB=pg_bikeroyalty
+    env_file: .env
+    logging:
+        options:
+          max-size: 10m
+          max-file: "3"
+    container_name: pg_bikeroyalty
+    ports:
+      - '5432:5432'
+
+
+  be_bikeroyalty:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: 'yarn run dev:server'
+    ports:
+      - '3000:3000'
+    env_file: .env
+    container_name: be_bikeroyalty
+    environment:
+      NODE_ENV: development
+    volumes:
+      - ./:/app/
+      - nodemodules:/app/node_modules
+    links:
+      - pg_bikeroyalty
+    depends_on:
+      - pg_bikeroyalty
+  
+volumes:
+  nodemodules: {}

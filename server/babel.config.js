@@ -19,6 +19,7 @@ module.exports = {
           '^~/(.+)': './src/\\1',
           '^@entities/(.+)': './src/entities/\\1',
           '^@database/(.+)': './src/database/\\1',
+          '^@routes/(.+)': './src/routes/\\1',
         }
       }
     ]

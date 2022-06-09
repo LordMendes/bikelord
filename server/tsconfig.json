@@ -11,8 +11,11 @@
       "@database/*": [
         "database/*"
       ],
-      "@entities*": [
+      "@entities/*": [
         "entities/*"
+      ],
+      "@routes/*": [
+        "routes/*"
       ],
     },
     "esModuleInterop": true,
